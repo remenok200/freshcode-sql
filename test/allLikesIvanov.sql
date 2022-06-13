@@ -1,10 +1,10 @@
 SELECT users.nickname,
     users.id,
     videos.caption,
-    likes.id
+    marks.id
 FROM videos
     JOIN (
         users
-        JOIN likes ON users.id = likes.userid
-    ) ON videos.id = likes.videoid
+        JOIN marks ON users.id = marks.user_id
+    ) ON videos.id = marks.video_id
 WHERE users.id = 2;

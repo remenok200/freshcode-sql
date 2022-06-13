@@ -5,7 +5,7 @@ VALUES ('Borovik'),
     ('Sidorov'),
     ('Kazanov');
     
-INSERT INTO videos (caption, userID)
+INSERT INTO videos (caption, user_id)
 VALUES ('Маляр', 1),
     ('Смола', 1),
     ('Рука', 2),
@@ -17,14 +17,14 @@ VALUES ('Маляр', 1),
     ('Укулеле', 3),
     ('Дрова', 2);
 
-INSERT INTO likes(videoID, userID)
-VALUES (1, 2),
-    (3, 2),
-    (5, 2),
-    (8, 1),
-    (10, 2);
+INSERT INTO marks(video_id, user_id, isLike)
+VALUES (1, 2, false),
+    (3, 2, true),
+    (5, 2, false),
+    (8, 1, true),
+    (10, 2, true);
 
-INSERT INTO comments(videoID, userID, messageText, replyTo)
+INSERT INTO comments(video_id, user_id, message_text, reply_to)
 VALUES (1, 1, 'Mess 1', null),
     (3, 2, 'Mess 2', null),
     (7, 3, 'Mess 3', null),

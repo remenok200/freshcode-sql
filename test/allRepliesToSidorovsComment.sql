@@ -1,11 +1,11 @@
 SELECT users.nickname,
     videos.caption,
-    comments.messagetext,
-    comments.replyto
+    comments.message_text,
+    comments.reply_to
 FROM videos
     JOIN (
         users
-        JOIN comments ON users.id = comments.userid
-    ) ON videos.id = comments.videoid
+        JOIN comments ON users.id = comments.user_id
+    ) ON videos.id = comments.video_id
 WHERE users.id = 4 -- на всякий случай показываю и тот коммент, на который отвечают
-    OR comments.replyto = 4;
+    OR comments.reply_to = 4;
