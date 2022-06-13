@@ -11,9 +11,10 @@ CREATE TABLE videos(
 );
 
 CREATE TABLE likes(
-    id SERIAL PRIMARY KEY,
+    id SERIAL,
     videoID INT NOT NULL REFERENCES videos(id),
-    userID INT NOT NULL REFERENCES users(id)
+    userID INT NOT NULL REFERENCES users(id),
+    PRIMARY KEY (videoID, userID)
 );
 
 CREATE TABLE comments(
@@ -21,5 +22,5 @@ CREATE TABLE comments(
     videoID INT NOT NULL REFERENCES videos(id),
     userID INT NOT NULL REFERENCES users(id),
     messageText TEXT NOT NULL,
-    replyTo INT
+    replyTo INT REFERENCES comments
 );
